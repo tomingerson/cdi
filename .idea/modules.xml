@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/guice/guice.iml" filepath="$PROJECT_DIR$/.idea/modules/guice/guice.iml" group="guice" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/guice/guice_main.iml" filepath="$PROJECT_DIR$/.idea/modules/guice/guice_main.iml" group="guice" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/guice/guice_test.iml" filepath="$PROJECT_DIR$/.idea/modules/guice/guice_test.iml" group="guice" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ioccdi.iml" filepath="$PROJECT_DIR$/.idea/modules/ioccdi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ioccdi_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ioccdi_main.iml" group="ioccdi" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ioccdi_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ioccdi_test.iml" group="ioccdi" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring/spring.iml" filepath="$PROJECT_DIR$/.idea/modules/spring/spring.iml" group="spring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring/spring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring/spring_main.iml" group="spring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring/spring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring/spring_test.iml" group="spring" />
+    </modules>
+  </component>
+</project>
