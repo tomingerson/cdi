@@ -4,6 +4,12 @@
     <bytecodeTargetLevel>
       <module name="guice_main" target="1.8" />
       <module name="guice_test" target="1.8" />
+      <module name="ioccdi.guice.main" target="11" />
+      <module name="ioccdi.guice.test" target="11" />
+      <module name="ioccdi.main" target="11" />
+      <module name="ioccdi.spring.main" target="11" />
+      <module name="ioccdi.spring.test" target="11" />
+      <module name="ioccdi.test" target="11" />
       <module name="ioccdi_main" target="1.8" />
       <module name="ioccdi_test" target="1.8" />
       <module name="spring_main" target="1.8" />
