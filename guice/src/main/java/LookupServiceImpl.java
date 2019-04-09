@@ -1,22 +1,23 @@
 import basics.Animal;
 import basics.Cat;
 import basics.Dog;
-import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is the same class as in the mocktests example. We will change the SomeAction here instead.
  *
  * @author Created by ergouser on 05.10.16.
  */
-@javax.inject.Singleton
+@com.google.inject.Singleton
 public class LookupServiceImpl implements LookupService {
 
-    private final static Collection<Animal> animals = Lists.newArrayList(
-            new Dog("molly"), new Cat("poppy"), new Cat("molly"));
+    private final static Collection<Animal> animals = List.of(new Dog("molly"), new Cat("poppy"), new Cat("molly"));
 
     /**
      * takes the given name and searches for all known animals with that name
@@ -25,14 +26,11 @@ public class LookupServiceImpl implements LookupService {
      * @return all animals found with the {@code name}
      */
     public final Collection<Animal> findAnimalByName(final String name) {
-        Collection<Animal> result = new ArrayList<>();
         if (StringUtils.isNotEmpty(name)) {
-            for (Animal a : animals) {
-                if (name.equalsIgnoreCase(a.getName())) {
-                    result.add(a);
-                }
-            }
+            return animals.stream()
+                    .filter(a -> name.equalsIgnoreCase(a.getName()))
+                    .collect(Collectors.toCollection(ArrayList::new));
         }
-        return result;
+        return Collections.emptyList();
     }
 }

@@ -4,14 +4,15 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.hamcrest.CoreMatchers;
-import org.hamcrest.core.Is;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 import java.util.Collections;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 /**
  * @author Created by ergouser on 05.10.16.
@@ -21,8 +22,8 @@ public class AnimalServiceTest {
     private Injector injector;
     private AnimalService animalService;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp()  {
         this.injector = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
@@ -32,17 +33,17 @@ public class AnimalServiceTest {
         this.animalService = injector.getInstance(AnimalService.class);
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterEach
+    public void tearDown()  {
         this.animalService = null;
         this.injector = null;
     }
 
     @Test
-    public void takeCareOfAnimal() throws Exception {
+    public void takeCareOfAnimal()  {
         Collection<Animal> animals = this.animalService.takeCareOfAnimal("molly");
-        Assert.assertThat("there should be one Dog", animals, Is.is(CoreMatchers.notNullValue()));
-        Assert.assertThat("wrong animal", animals.iterator().next().getName(), Is.is(CoreMatchers.equalTo("alfie")));
+        assertThat("there should be one Dog", animals, is(CoreMatchers.notNullValue()));
+        assertThat("wrong animal", animals.iterator().next().getName(), is(CoreMatchers.equalTo("alfie")));
     }
 
     private static class MockLookupService implements LookupService {

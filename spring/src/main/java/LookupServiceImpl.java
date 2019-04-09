@@ -4,9 +4,10 @@ import basics.Dog;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is the same class as in the mocktests example. We will change the SomeAction here instead.
@@ -17,7 +18,7 @@ import java.util.Collection;
 @org.springframework.context.annotation.Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class LookupServiceImpl implements LookupService {
 
-    private final static Collection<Animal> animals = Arrays.asList(
+    private final static Collection<Animal> animals = List.of(
             new Dog("molly"), new Cat("poppy"), new Cat("molly"));
 
     /**
@@ -27,14 +28,11 @@ public class LookupServiceImpl implements LookupService {
      * @return all animals found with the {@code name}
      */
     public final Collection<Animal> findAnimalByName(final String name) {
-        Collection<Animal> result = new ArrayList<>();
         if (StringUtils.isNotEmpty(name)) {
-            for (Animal a : animals) {
-                if (name.equalsIgnoreCase(a.getName())) {
-                    result.add(a);
-                }
-            }
+            return animals.stream()
+                    .filter(a -> name.equalsIgnoreCase(a.getName()))
+                    .collect(Collectors.toList());
         }
-        return result;
+        return Collections.emptyList();
     }
 }
